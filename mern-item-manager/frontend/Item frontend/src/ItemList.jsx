@@ -35,7 +35,7 @@ export default function ItemList({ items, onRefresh }) {
                         <h3>{item.name}</h3>
                         <p>{item.description}</p>
                         <p>
-                            <strong>Price: ${item.price}</strong>
+                            <strong>Barcode No: {item.barcodeNo}</strong>
                         </p>
                         <button onClick={() => handleDelete(item._id)}>Delete</button>
                     </div>

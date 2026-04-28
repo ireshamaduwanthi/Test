@@ -3,13 +3,14 @@ import { createItem } from '../api';
 export default function ItemForm({ onItemAdded }) {
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
-    const [price, setPrice] = useState('');   // ← NEW
+    const [barcodeNo, setBarcodeNo] = useState('');
+
     const handleSubmit = async (e) => {
         e.preventDefault();
-        await createItem({ name, description, price: Number(price) });  // ← UPDATED
+        await createItem({ name, description, barcodeNo: Number(barcodeNo) });
         setName('');
         setDescription('');
-        setPrice('');  // ← NEW
+        setBarcodeNo('');
         onItemAdded();
     };
     return (
@@ -33,13 +34,13 @@ export default function ItemForm({ onItemAdded }) {
             </div>
             <div>
                 <input
-                    placeholder="Price (e.g. 29.99)"
+                    placeholder="Barcode No (e.g. 123456)"
                     type="number"
-                    value={price}
-                    onChange={e => setPrice(e.target.value)}
+                    value={barcodeNo}
+                    onChange={e => setBarcodeNo(e.target.value)}
                     required
                 />
-            </div>   {/* ← NEW */}
+            </div>
             <button type="submit">Add Item</button>
         </form>
     );
