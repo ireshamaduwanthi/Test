@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getItems } from './api';
-import ItemForm from './components/ItemForm';
-import ItemList from './components/ItemList';
+import ItemForm from './ItemForm';
+import ItemList from './ItemList';
 function App() {
   const [items, setItems] = useState([]);
   const fetchItems = async () => {
